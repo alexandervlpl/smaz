@@ -10,4 +10,4 @@ clean:
 js: _smaz.js
 
 _smaz.js: $(OBJECTS) $(HEADERS)
-	emcc smaz.c -O2 -o $@ --closure 1 -s EXPORTED_FUNCTIONS="['_smaz_compress', '_smaz_decompress']" -s 'EXTRA_EXPORTED_RUNTIME_METHODS=["ccall", "cwrap"]'
+	emcc smaz.c -O2 -o $@ --closure 1 -s EXPORTED_FUNCTIONS="['_smaz_compress', '_smaz_decompress']" -s 'EXTRA_EXPORTED_RUNTIME_METHODS=["ccall", "cwrap"]' -s BINARYEN_ASYNC_COMPILATION=0
