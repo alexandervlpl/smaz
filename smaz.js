@@ -7,7 +7,7 @@ let encoder = new util.TextEncoder();
 
 exports.compress = function(str_in) {
   var encoded = encoder.encode(str_in);
-  var out_heap = _smaz['_malloc'](str_in.length * 8);
+  var out_heap = _smaz['_malloc'](encoded.length * 8);
   var out_buffer = new Uint8Array(_smaz['HEAPU8']['buffer'], out_heap, encoded.length * 8);
 
   var len = _smaz_compress(str_in, encoded.length, out_buffer.byteOffset, out_buffer.byteLength);
